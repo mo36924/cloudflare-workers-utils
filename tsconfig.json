@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "noEmit": true,
+    "target": "ES2022",
+    "module": "ES2022",
+    "moduleResolution": "Node",
+    "types": ["@cloudflare/workers-types"],
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "strict": true
+  }
+}
