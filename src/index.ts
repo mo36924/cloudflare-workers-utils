@@ -1,5 +1,7 @@
 export const minPartSize = 1024 * 1024 * 5;
 
+export const defineWorker = <Env = {}>(handler: ExportedHandler<Env>): ExportedHandler<Env> => handler;
+
 export const defineFetchHandler = <Env = {}>(fetch: ExportedHandlerFetchHandler<Env>): ExportedHandler<Env> => ({
   fetch,
 });
