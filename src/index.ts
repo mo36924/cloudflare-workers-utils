@@ -34,6 +34,10 @@ export const contentType = (pathname: string) => {
       return "image/vnd.microsoft.icon";
     case "txt":
       return "text/plain; charset=utf-8";
+    case "json":
+      return "application/json";
+    case "xml":
+      return "application/xml";
     default:
       return "text/html; charset=utf-8";
   }
