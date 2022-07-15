@@ -18,6 +18,7 @@ export const compress = (data: string | ArrayBuffer | Blob) =>
   ).arrayBuffer();
 
 export const md5 = (data: ArrayBuffer | ArrayBufferView) => crypto.subtle.digest("MD5", data);
+export const sha1 = (data: ArrayBuffer | ArrayBufferView) => crypto.subtle.digest("SHA-1", data);
 
 export const hex = (data: ArrayBuffer) =>
   [...new Uint8Array(data)].map((x) => x.toString(16).padStart(2, "0")).join("");
