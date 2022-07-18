@@ -1,3 +1,4 @@
+import { builtinModules } from "module";
 import typescript from "@rollup/plugin-typescript";
 import { defineConfig } from "rollup";
 import dts from "rollup-plugin-dts";
@@ -9,6 +10,7 @@ export default defineConfig([
       { file: "dist/index.mjs", sourcemap: true },
       { file: "dist/index.js", sourcemap: true, format: "commonjs", exports: "auto" },
     ],
+    external: builtinModules,
     plugins: [typescript()],
   },
   {
