@@ -12,33 +12,12 @@ export const defineScheduledHandler = <Env = {}>(
   scheduled,
 });
 
-export const compress =
-  typeof Blob === "undefined"
-    ? async (data: string | ArrayBuffer | Blob) => {
-        const { Blob } = await import("buffer");
-        return new Response(
-          (
-            new Blob([
-              typeof data === "string" ? data : "byteLength" in data ? Buffer.from(data) : data,
-            ]).stream() as any as ReadableStream
-          ).pipeThrough(new CompressionStream("gzip")),
-        ).arrayBuffer();
-      }
-    : (data: string | ArrayBuffer | Blob) =>
-        new Response(
-          (new Blob([data]).stream() as any as ReadableStream).pipeThrough(new CompressionStream("gzip")),
-        ).arrayBuffer();
+export const compress = (data: string | ArrayBuffer | Blob) =>
+  new Response(
+    (new Blob([data]).stream() as any as ReadableStream).pipeThrough(new CompressionStream("gzip")),
+  ).arrayBuffer();
 
-export const md5 =
-  typeof global !== "undefined"
-    ? async (data: ArrayBuffer | ArrayBufferView) => {
-        const { createHash } = await import("crypto");
-        return createHash("md5")
-          .update(Buffer.from("buffer" in data ? data.buffer : data))
-          .digest();
-      }
-    : (data: ArrayBuffer | ArrayBufferView) => crypto.subtle.digest("MD5", data);
-
+export const md5 = (data: ArrayBuffer | ArrayBufferView) => crypto.subtle.digest("MD5", data);
 export const sha1 = (data: ArrayBuffer | ArrayBufferView) => crypto.subtle.digest("SHA-1", data);
 
 export const hex = (data: ArrayBuffer) =>
