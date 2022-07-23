@@ -8,17 +8,9 @@ export type DefineScheduledHandler<Env = {}> = (scheduled: ExportedHandlerSchedu
 
 export const minPartSize = 1024 * 1024 * 5;
 
-export const defineWorker = <Env = {}>(handler: ExportedHandler<Env>): ExportedHandler<Env> => handler;
-
-export const defineFetchHandler = <Env = {}>(fetch: ExportedHandlerFetchHandler<Env>): ExportedHandler<Env> => ({
-  fetch,
-});
-
-export const defineScheduledHandler = <Env = {}>(
-  scheduled: ExportedHandlerScheduledHandler<Env>,
-): ExportedHandler<Env> => ({
-  scheduled,
-});
+export const defineWorker = <Env = {}>(handler: ExportedHandler<Env>) => handler;
+export const defineFetchHandler = <Env = {}>(fetch: ExportedHandlerFetchHandler<Env>) => ({ fetch });
+export const defineScheduledHandler = <Env = {}>(scheduled: ExportedHandlerScheduledHandler<Env>) => ({ scheduled });
 
 export const compress = (data: string | ArrayBuffer | Blob) =>
   new Response(
