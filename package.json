@@ -19,6 +19,12 @@
       "import": "./dist/index.mjs",
       "require": "./dist/index.js",
       "default": "./dist/index.js"
+    },
+    "./polyfill": {
+      "types": "./dist/polyfill.d.ts",
+      "import": "./dist/polyfill.mjs",
+      "require": "./dist/polyfill.js",
+      "default": "./dist/polyfill.js"
     }
   },
   "main": "./dist/index.js",

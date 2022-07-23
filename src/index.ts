@@ -1,3 +1,11 @@
+export type DefineWorker<Env = {}> = (handler: ExportedHandler<Env>) => ExportedHandler<Env>;
+export type DefineFetchHandler<Env = {}> = (fetch: ExportedHandlerFetchHandler<Env>) => {
+  fetch: ExportedHandlerFetchHandler<Env>;
+};
+export type DefineScheduledHandler<Env = {}> = (scheduled: ExportedHandlerScheduledHandler<Env>) => {
+  scheduled: ExportedHandlerScheduledHandler<Env>;
+};
+
 export const minPartSize = 1024 * 1024 * 5;
 
 export const defineWorker = <Env = {}>(handler: ExportedHandler<Env>): ExportedHandler<Env> => handler;
