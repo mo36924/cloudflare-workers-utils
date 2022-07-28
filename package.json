@@ -1,6 +1,6 @@
 {
   "name": "@mo36924/cloudflare-workers-utils",
-  "version": "1.0.9",
+  "version": "1.0.10",
   "description": "",
   "keywords": [],
   "homepage": "https://github.com/mo36924/cloudflare-workers-utils#readme",
@@ -16,9 +16,9 @@
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
+      "node": "./dist/node.mjs",
       "import": "./dist/index.mjs",
       "require": "./dist/index.js",
-      "node": "./dist/node.mjs",
       "default": "./dist/index.js"
     },
     "./node": {
