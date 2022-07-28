@@ -12,7 +12,7 @@ export const defineWorker = <Env = {}>(handler: ExportedHandler<Env>) => handler
 export const defineFetchHandler = <Env = {}>(fetch: ExportedHandlerFetchHandler<Env>) => ({ fetch });
 export const defineScheduledHandler = <Env = {}>(scheduled: ExportedHandlerScheduledHandler<Env>) => ({ scheduled });
 
-export const compress = (data: string | ArrayBuffer | Blob) =>
+export const compress = (data: BlobPart) =>
   new Response(
     (new Blob([data]).stream() as any as ReadableStream).pipeThrough(new CompressionStream("gzip")),
   ).arrayBuffer();
