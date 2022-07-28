@@ -27,7 +27,7 @@ export const hex = (data: ArrayBuffer) =>
 
 export const base64 = (data: ArrayBuffer) => btoa(String.fromCharCode(...new Uint8Array(data)));
 export const base64url = (data: ArrayBuffer) =>
-  base64(data).replace(/[+/=/]/g, (m) => (m === "+" ? "-" : m === "/" ? "_" : ""));
+  base64(data).replace(/[+/=]/g, (m) => (m === "+" ? "-" : m === "/" ? "_" : ""));
 
 export const contentType = (pathname: string) => {
   switch (pathname.match(/\.(\w+)$/)?.[1] ?? pathname) {
