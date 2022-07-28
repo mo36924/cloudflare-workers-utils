@@ -1,6 +1,6 @@
 {
   "name": "@mo36924/cloudflare-workers-utils",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "",
   "keywords": [],
   "homepage": "https://github.com/mo36924/cloudflare-workers-utils#readme",
@@ -18,13 +18,14 @@
       "types": "./dist/index.d.ts",
       "import": "./dist/index.mjs",
       "require": "./dist/index.js",
+      "node": "./dist/node.mjs",
       "default": "./dist/index.js"
     },
-    "./polyfill": {
-      "types": "./dist/polyfill.d.ts",
-      "import": "./dist/polyfill.mjs",
-      "require": "./dist/polyfill.js",
-      "default": "./dist/polyfill.js"
+    "./node": {
+      "types": "./dist/node.d.ts",
+      "import": "./dist/node.mjs",
+      "require": "./dist/node.js",
+      "default": "./dist/node.js"
     }
   },
   "main": "./dist/index.js",

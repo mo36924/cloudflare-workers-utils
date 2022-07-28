@@ -17,8 +17,10 @@ export const compress = (data: string | ArrayBuffer | Blob) =>
     (new Blob([data]).stream() as any as ReadableStream).pipeThrough(new CompressionStream("gzip")),
   ).arrayBuffer();
 
-export const md5 = (data: ArrayBuffer | ArrayBufferView) => crypto.subtle.digest("MD5", data);
-export const sha1 = (data: ArrayBuffer | ArrayBufferView) => crypto.subtle.digest("SHA-1", data);
+export const md5 = (data: string | BufferSource) =>
+  crypto.subtle.digest("MD5", typeof data === "string" ? new TextEncoder().encode(data) : data);
+export const sha1 = (data: string | BufferSource) =>
+  crypto.subtle.digest("SHA-1", typeof data === "string" ? new TextEncoder().encode(data) : data);
 
 export const hex = (data: ArrayBuffer) =>
   [...new Uint8Array(data)].map((x) => x.toString(16).padStart(2, "0")).join("");
@@ -28,7 +30,7 @@ export const base64url = (data: ArrayBuffer) =>
   base64(data).replace(/[+/=/]/g, (m) => (m === "+" ? "-" : m === "/" ? "_" : ""));
 
 export const contentType = (pathname: string) => {
-  switch (pathname.match(/\.(\w+)$/)?.[1]) {
+  switch (pathname.match(/\.(\w+)$/)?.[1] ?? pathname) {
     case "css":
       return "text/css; charset=utf-8";
     case "ico":

@@ -19,17 +19,17 @@ export default defineConfig([
     plugins: [dts()],
   },
   {
-    input: "src/polyfill.ts",
+    input: "src/node.ts",
     output: [
-      { file: "dist/polyfill.mjs", sourcemap: true },
-      { file: "dist/polyfill.js", sourcemap: true, format: "commonjs", exports: "auto" },
+      { file: "dist/node.mjs", sourcemap: true },
+      { file: "dist/node.js", sourcemap: true, format: "commonjs", exports: "auto" },
     ],
     external: builtinModules,
     plugins: [typescript()],
   },
   {
-    input: "src/polyfill.ts",
-    output: { file: "dist/polyfill.d.ts" },
+    input: "src/node.ts",
+    output: { file: "dist/node.d.ts" },
     plugins: [dts()],
   },
 ]);

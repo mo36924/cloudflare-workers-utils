@@ -15,3 +15,5 @@ webcrypto.subtle.digest = async (algorithm, data) =>
     : digest(algorithm, data);
 
 globalThis.Blob ??= Blob as any;
+
+export * from "./index";
