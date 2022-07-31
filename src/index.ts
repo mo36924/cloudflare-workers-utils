@@ -41,6 +41,8 @@ export const contentType = (pathname: string) => {
       return "application/json";
     case "xml":
       return "application/xml";
+    case "js":
+      return "text/javascript; charset=utf-8";
     default:
       return "text/html; charset=utf-8";
   }
